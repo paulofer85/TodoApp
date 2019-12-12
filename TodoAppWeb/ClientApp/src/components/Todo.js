@@ -19,7 +19,6 @@ export class Todo extends Component {
     
 
     refreshList() {
-        debugger;
         fetch('http://localhost:49791/api/todoes')
             .then(response => response.json())
             .then(data => {
