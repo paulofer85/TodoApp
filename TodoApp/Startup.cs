@@ -55,11 +55,6 @@ namespace TodoApp
             app.UseCors(AllowMyOrigin);
 
             app.UseMvc();
-
-            //app.Run(context =>
-            //{
-            //    return context.Response.WriteAsync("Hola Mundo!");
-            //});
         }
 
         public void ConfigureHello(IApplicationBuilder app)

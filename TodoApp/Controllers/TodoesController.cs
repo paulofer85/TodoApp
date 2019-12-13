@@ -11,6 +11,16 @@ using TodoApp.Models;
 
 namespace TodoApp
 {
+
+    public class TodoParameters
+    {
+        public string descripcion { get; set; }
+        public string estatus { get; set; }
+        public IFormFile documento { get; set; }
+
+        public bool IsValid => (!string.IsNullOrEmpty(descripcion)) && (estatus != null);
+    }
+
     [EnableCors("_allowMyOrigin")]
     [Produces("application/json")]
     [Route("api/Todoes")]
@@ -23,14 +33,7 @@ namespace TodoApp
             _context = context;
         }
 
-        public class TodoParameters
-        {
-            public string descripcion { get; set; }
-            public string  estatus { get; set; }
-            public IFormFile documento{ get; set; }
 
-            public bool IsValid => (!string.IsNullOrEmpty(descripcion)) && (estatus != null) ;
-        }
 
         // GET: api/Todoes
         [HttpGet]
